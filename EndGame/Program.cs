@@ -3,7 +3,7 @@
 using EndGame;
 
 Party heroes = new();
-heroes.Members.Add(new Skeleton());
+heroes.Members.Add(new TrueProgrammer(Helpers.GetName()));
 
 Party monsters = new();
 monsters.Members.Add(new Skeleton());

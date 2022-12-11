@@ -1,5 +1,6 @@
 using System.Text;
 using System.Threading;
+using EndGame.Characters;
 
 namespace EndGame;
 
@@ -25,7 +26,7 @@ public class Game
                     Console.WriteLine();
                     Console.WriteLine($"It is {c.Name}'s turn...");
                     Thread.Sleep(500);
-                    c.DoNothing();
+                    p.Player.ChooseAction(c).Execute();
                 }
             }
             Console.WriteLine("...");

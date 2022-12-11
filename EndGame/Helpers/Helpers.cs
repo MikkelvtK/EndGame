@@ -1,4 +1,4 @@
-namespace EndGame;
+namespace EndGame.Helpers;
 
 public static class Helpers
 {

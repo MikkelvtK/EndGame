@@ -1,13 +1,11 @@
-using System.Text;
-using System.Threading;
 using EndGame.Characters;
 
 namespace EndGame;
 
 public class Game
 {
-    private Party Heroes;
-    private Party Monsters;
+    public Party Heroes;
+    public Party Monsters;
 
     public Game(Party heroes, Party monsters)
     {
@@ -26,7 +24,7 @@ public class Game
                     Console.WriteLine();
                     Console.WriteLine($"It is {c.Name}'s turn...");
                     Thread.Sleep(500);
-                    p.Player.ChooseAction(c).Execute();
+                    p.Player.ChooseAction(this, c);
                 }
             }
             Console.WriteLine("...");

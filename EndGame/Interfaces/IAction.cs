@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace EndGame.Interfaces;
 
 public interface IAction

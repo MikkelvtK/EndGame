@@ -1,22 +1,15 @@
 using EndGame.Interfaces;
 using EndGame.Characters;
-using System.Collections.Generic;
-using EndGame.Actions;
+using EndGame.Helpers;
 
 namespace EndGame.Players;
 
 public class ComputerPlayer : IPlayer
 {
-    public IAction ChooseAction(Character character)
+    public void ChooseAction(Game game, Character character)
     {
-        foreach (IAction a in character.Actions)
-        {
-            if (a.GetType() == typeof(DoNothingAction))
-            {
-                return a;
-            }
-        }
-
-        return new ErrorAction();
+        Character enemy = GameHelpers.GetEnemyParty(game, character).Members[0];
+        character.StandardAttack.Attack.SetAttackParameters(character, enemy);
+        character.StandardAttack.Execute();
     }
 }

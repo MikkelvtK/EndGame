@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using EndGame.Interfaces;
 
 namespace EndGame.Actions;

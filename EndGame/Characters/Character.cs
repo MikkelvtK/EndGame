@@ -7,12 +7,14 @@ namespace EndGame.Characters;
 public abstract class Character
 {
     public string Name { get; }
+    public int MaxHealth { get; set; }
+    public int CurrentHealth { get; set; }
     public List<IAction> Actions { get; } = new List<IAction>();
-    public AttackAction StandardAttack { get; }
 
-    public Character(string name, Attack attack)
+    public Character(string name, int maxHealth)
     {
         Name = name;
-        StandardAttack = new AttackAction(attack);
+        MaxHealth = maxHealth;
+        CurrentHealth = maxHealth;
     }
 }

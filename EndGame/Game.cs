@@ -15,10 +15,12 @@ public class Game
 
     public void Run()
     {
-        while (true)
+        while (Heroes.Alive && Monsters.Alive)
         {
             foreach (Party p in new[] { Heroes, Monsters })
             {
+                p.UpdateParty();
+
                 foreach (Character c in p.Members)
                 {
                     Console.WriteLine();
@@ -28,6 +30,20 @@ public class Game
                 }
             }
             Console.WriteLine("...");
+        }
+
+        DisplayWinner();
+    }
+
+    private void DisplayWinner()
+    {
+        if (Heroes.Alive)
+        {
+            Console.WriteLine("The Heroes have won, and the Uncoded One is defeated!");
+        }
+        else
+        {
+            Console.WriteLine("The Monsters have won, and the Uncoded One's forces have prevailed.");
         }
     }
 }

@@ -1,32 +1,30 @@
 using EndGame.Characters;
-
-namespace EndGame;
+using EndGame.Parties;
 
 public class Game
 {
-    public Party Heroes;
-    public Party Monsters;
+    private readonly BattleSystem _battleSystem;
 
-    public Game(Party heroes, Party monsters)
+    public Game(BattleSystem battleSystem)
     {
-        Heroes = heroes;
-        Monsters = monsters;
+        _battleSystem = battleSystem;
     }
 
     public void Run()
     {
-        while (Heroes.Alive && Monsters.Alive)
+        while (_battleSystem.Heroes.Alive && _battleSystem.Monsters.Alive)
         {
-            foreach (Party p in new[] { Heroes, Monsters })
+            foreach (Party p in new[] { _battleSystem.Heroes, _battleSystem.Monsters })
             {
-                p.UpdateParty();
-
                 foreach (Character c in p.Members)
                 {
                     Console.WriteLine();
                     Console.WriteLine($"It is {c.Name}'s turn...");
                     Thread.Sleep(500);
-                    p.Player.ChooseAction(this, c);
+                    p.Player.ChooseAction(_battleSystem, c);
+                    _battleSystem.GetEnemyParty(c).UpdateParty();
+
+                    if (!_battleSystem.Monsters.Alive) _battleSystem.NextBattle();
                 }
             }
             Console.WriteLine("...");
@@ -37,7 +35,7 @@ public class Game
 
     private void DisplayWinner()
     {
-        if (Heroes.Alive)
+        if (_battleSystem.Heroes.Alive)
         {
             Console.WriteLine("The Heroes have won, and the Uncoded One is defeated!");
         }

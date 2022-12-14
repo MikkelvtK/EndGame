@@ -4,5 +4,5 @@ namespace EndGame.Interfaces;
 
 public interface IPlayer
 {
-    public void ChooseAction(Game game, Character character);
+    public void ChooseAction(BattleSystem battleSystem, Character character);
 }

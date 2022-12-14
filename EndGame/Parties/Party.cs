@@ -1,8 +1,7 @@
-using System.Linq.Expressions;
 using EndGame.Characters;
 using EndGame.Interfaces;
 
-namespace EndGame;
+namespace EndGame.Parties;
 
 public class Party
 {
@@ -16,7 +15,7 @@ public class Party
         Alive = true;
         Members = new List<Character>();
     }
-
+    
     public void UpdateParty()
     {
         Character deadMember = Members.Find(x => x.CurrentHealth == 0);

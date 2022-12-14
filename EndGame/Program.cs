@@ -13,6 +13,7 @@ heroes.Members.Add(new TrueProgrammer(Helpers.GetName()));
 var monsters = new List<Party>();
 monsters.Add(new MonsterParty(playerMonsters, 1));
 monsters.Add(new MonsterParty(playerMonsters, 2));
+monsters.Add(new MonsterParty(playerMonsters, 0, true));
 
 var battleSystem = new BattleSystem(heroes, monsters);
 

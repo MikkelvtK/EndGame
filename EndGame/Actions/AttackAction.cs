@@ -29,7 +29,7 @@ namespace EndGame.Actions
             
             Console.WriteLine($"{_attackerName} used {_attack.Name} on {Target.Name}.");
             Console.WriteLine($"{_attack.Name} dealt {damage} damage to {Target.Name}.");
-            Console.WriteLine($"{Target.Name} is now at {Target.CurrentHealth}/{Target.MaxHealth}.");
+            Console.WriteLine($"{Target.Name} is now at {Target.CurrentHealth}/{Target.MaxHealth} HP.");
         }
     }
 }

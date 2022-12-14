@@ -9,11 +9,13 @@ namespace EndGame.Actions
         private readonly Attack _attack;
         private readonly string _attackerName;
         private Character Target { get; set; }
+        public string Name { get; set; }
 
         public AttackAction(Attack attack, string attackerName)
         {
             _attack = attack;
             _attackerName = attackerName;
+            Name = $"Standard Attack ({_attack.Name})";
         }
 
         public AttackAction SetAttackParameters(Character target)

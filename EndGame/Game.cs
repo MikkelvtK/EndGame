@@ -44,4 +44,9 @@ public class Game
             Console.WriteLine("The Monsters have won, and the Uncoded One's forces have prevailed.");
         }
     }
+
+    private void BuildMenu(Character character)
+    {
+        
+    }
 }

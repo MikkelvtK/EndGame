@@ -1,3 +1,5 @@
+using Microsoft.Win32.SafeHandles;
+
 namespace EndGame.Helpers;
 
 public static class Helpers

@@ -4,7 +4,7 @@ using EndGame.Helpers;
 using EndGame.Parties;
 using EndGame.Players;
 
-var playerHeroes = new ComputerPlayer();
+var playerHeroes = new HumanPlayer();
 var playerMonsters = new ComputerPlayer();
 
 var heroes = new Party(playerHeroes);
